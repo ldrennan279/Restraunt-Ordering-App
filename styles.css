@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Smythe', cursive;
+}
+
+body{
+    position: relative;
+    max-width: 450px;
+}
+.header{
+    background-image: url(images/Stack-of-cheeseburgers.jpg);
+    background-size: 100% 100%;
+    height: 150px
+}
+.title{
+    color: white;
+    position: absolute;
+    left: 20px;
+    top: 30%;
+}
+.title h4{
+    font-weight: 100;
+}
+.item-section{
+    margin: 0px 20px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+}
+.item-image{
+    height: 65px;
+    width: 65px;
+    
+}
+.add-btn{
+    width: 35px;
+    height: 35px;
+}
+.item-div{
+    width: 100%;
+    margin: 10px 30px;
+}
+.item-header, .price {
+    font-weight: 400;
+}
+.item-ingredients{
+    font-weight: 100;
+    color: #8B8B8B;
+    padding-bottom: 5px;
+}
+
