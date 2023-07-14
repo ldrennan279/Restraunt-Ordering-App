@@ -25,27 +25,39 @@ foodData.forEach((item) => {
 });
 
 
-document.addEventListener("click", ()=> {
-        console.log("clicked")
-        main.innerHTML += `
+document.addEventListener("click", (e)=> {
+        if(e.target.id === "add-btn"){
+            main.innerHTML += `
         <section class="order-section" id="order-section">
             <div class="order-section-header" id="order-section-header">
                 <h3>Your order</h3>
             </div>
-            <div class="addedItems" id="addedItems">
-                <div class="added-item-remove" id="added-item-remove">
-                    <h3>Pizza</h3>
-                    <p class="remove-btn" id="remove-btn">remove</p>
-                </div>
-                <h3>$14</h3>
-            </div>
-            <div class="order-total" id="order-total">
-                <h3>Total price:</h3>
-                <h3>$14</h3> 
+            <div class="added-item-remove" id="added-item-remove">
+
             </div>
             <button class="complete-order-btn" id="complete-order-btn">
                     Complete order
             </button>          
        </section>
         `
+        }
+        
 })
+// push item to array and then add items from array to order in html.
+document.addEventListener("click",(e)=>{
+    const orderArray = []
+    if(e.target.id === "add-btn"){
+
+    }
+})
+// <div class="addedItems" id="addedItems">
+            //     <div class="added-item-remove" id="added-item-remove">
+            //         <h3>Pizza</h3>
+            //         <p class="remove-btn" id="remove-btn">remove</p>
+            //     </div>
+            //     <h3>$14</h3>
+            // </div>
+            // <div class="order-total" id="order-total">
+            //     <h3>Total price:</h3>
+            //     <h3>$14</h3> 
+            // </div>

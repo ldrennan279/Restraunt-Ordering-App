@@ -9,6 +9,7 @@
 body{
     position: relative;
     max-width: 450px;
+    margin: auto;
 }
 .header{
     background-image: url(images/Stack-of-cheeseburgers.jpg);
@@ -16,6 +17,9 @@ body{
     height: 150px;
     display: flex;
     align-items: center;
+}
+main{
+    height: 80vh;
 }
 .title{
     color: white;
@@ -63,8 +67,8 @@ body{
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 100vw;
-    padding: 20px 40px;
+    width: 100%;
+    padding: 20px 20px;
     bottom: 0px;
     
 }
@@ -91,9 +95,7 @@ body{
 .added-item-remove h3{
     padding: 0px 10px 0px 0px;
 }
-main{
-    height: 80vh;
-}
+
 .added-item-remove{
     display: flex;
     align-items: center;
