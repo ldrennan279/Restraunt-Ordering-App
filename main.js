@@ -2,7 +2,7 @@ import {foodData} from "/data.js"
 
 const header = document.getElementById("header")
 const main = document.getElementById("main")
-const addBtn = document.getElementById("add-btn")
+const addItem = document.getElementById("order-section")
 
 header.innerHTML = `
     <div class="title">
@@ -19,45 +19,43 @@ foodData.forEach((item) => {
                         <p class="item-ingredients">${item.description}</p>
                         <h3 class="price">${item.price}</h3>
                     </div>
-                <img src="${item.add}" alt="add button" class="add-btn" id="add-btn">
+                <img src="${item.add}" alt="add button" class="add-btn" id="${item.itemId}">
             </section>
     `
 });
 
 
 document.addEventListener("click", (e)=> {
-        if(e.target.id === "add-btn"){
-            main.innerHTML += `
-        <section class="order-section" id="order-section">
-            <div class="order-section-header" id="order-section-header">
-                <h3>Your order</h3>
-            </div>
-            <div class="added-item-remove" id="added-item-remove">
+    const itemId = e.target.id
+    const orderArray = []
+    if(e.target.id === itemId){
+        main.innerHTML += `
+            <section class="order-section" id="order-section">
+                <div class="order-section-header" id="order-section-header">
+                    <h3>Your order</h3>
+                </div>
+                <div class="added-item-remove" id="added-item-remove">
 
-            </div>
-            <button class="complete-order-btn" id="complete-order-btn">
-                    Complete order
-            </button>          
-       </section>
+                </div>
+                <button class="complete-order-btn" id="complete-order-btn">
+                        Complete order
+                </button>          
+        </section>
         `
         }
-        
-})
-// push item to array and then add items from array to order in html.
-document.addEventListener("click",(e)=>{
-    const orderArray = []
-    if(e.target.id === "add-btn"){
-
+    
+    if(e.target.id === itemId){
+        orderArray.push(e.target.id)
     }
+    console.log(orderArray)
+    orderArray.forEach((itemId)=> {
+        foodData.forEach((item)=> {
+            if(itemId === item.itemId){
+                addItem.textContent = `
+                <p>Pizza</p>
+                `
+            }
+        })
+    })
 })
-// <div class="addedItems" id="addedItems">
-            //     <div class="added-item-remove" id="added-item-remove">
-            //         <h3>Pizza</h3>
-            //         <p class="remove-btn" id="remove-btn">remove</p>
-            //     </div>
-            //     <h3>$14</h3>
-            // </div>
-            // <div class="order-total" id="order-total">
-            //     <h3>Total price:</h3>
-            //     <h3>$14</h3> 
-            // </div>
+// Work on displaying text in order section
