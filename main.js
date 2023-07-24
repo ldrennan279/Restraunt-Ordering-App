@@ -24,12 +24,21 @@ foodData.forEach((item) => {
     `
 });
 
-const orderArray = []
-document.addEventListener("click", (e)=> {
-    const itemId = e.target.id
+function getItems(itemId){
+    const itemsArray = []
+    foodData.forEach((item)=>{
+        if(item.item === itemId){
+            itemsArray.push(item)
+        }
+    })
+    console.log(itemsArray)
     
-    if(e.target.id === itemId){
-       
+}
+
+
+document.addEventListener("click", (e)=> {
+       getItems(e.target.id)
+
         main.innerHTML += `
             <section class="order-section" id="order-section">
                 <div class="order-section-header" id="order-section-header">
@@ -43,9 +52,5 @@ document.addEventListener("click", (e)=> {
                 </button>          
         </section>
         `
-        }
-    
-    
-    
-    })
+        })
 // Work on displaying text in order section, .filter and .include method.
