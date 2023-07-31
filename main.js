@@ -23,21 +23,19 @@ foodData.forEach((item) => {
             </section>
     `
 });
-
-function getItems(itemId){
-    const itemsArray = []
-    foodData.forEach((item)=>{
-        if(item.item === itemId){
+const itemsArray = []
+function getItem(items){
+    const orderItems = items.filter((item)=>{
+        if(item === itemId){
             itemsArray.push(item)
         }
     })
     console.log(itemsArray)
-    
 }
 
 
 document.addEventListener("click", (e)=> {
-       getItems(e.target.id)
+       getItem(e.target.id)
 
         main.innerHTML += `
             <section class="order-section" id="order-section">
