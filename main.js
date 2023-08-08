@@ -3,6 +3,7 @@ import {foodData} from "/data.js"
 const header = document.getElementById("header")
 const main = document.getElementById("main")
 const addItem = document.getElementById("order-section")
+const order = []
 
 header.innerHTML = `
     <div class="title">
@@ -23,20 +24,20 @@ foodData.forEach((item) => {
             </section>
     `
 });
-const itemsArray = []
-function getItem(items){
-    const orderItems = items.filter((item)=>{
-        if(item === itemId){
-            itemsArray.push(item)
-        }
+
+
+function getItemFromFoodData(itemIdSelected){
+    const foodItem = foodData.filter(function(item){
+        return item.itemId === itemIdSelected
     })
-    console.log(itemsArray)
+    order.push(foodItem)
+    console.log(order)
 }
+    
 
 
 document.addEventListener("click", (e)=> {
-       getItem(e.target.id)
-
+        getItemFromFoodData(e.target.id)
         main.innerHTML += `
             <section class="order-section" id="order-section">
                 <div class="order-section-header" id="order-section-header">
