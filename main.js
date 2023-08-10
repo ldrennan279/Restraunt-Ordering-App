@@ -2,7 +2,6 @@ import {foodData} from "/data.js"
 
 const header = document.getElementById("header")
 const main = document.getElementById("main")
-const addItem = document.getElementById("order-section")
 const order = []
 
 header.innerHTML = `
@@ -30,26 +29,31 @@ function getItemFromFoodData(itemIdSelected){
     const foodItem = foodData.filter(function(item){
         return item.itemId === itemIdSelected
     })
-    order.push(foodItem)
-    console.log(order)
+    order.push(foodItem[0])
+    console.log(order)   
 }
+
     
 
 
 document.addEventListener("click", (e)=> {
         getItemFromFoodData(e.target.id)
+        order.forEach((orderItem)=>{
         main.innerHTML += `
-            <section class="order-section" id="order-section">
-                <div class="order-section-header" id="order-section-header">
-                    <h3>Your order</h3>
+        <section class="order-section" id="order-section">
+            <div class="order-section-header" id="order-section-header">
+                <h3>Your order</h3>
+            </div>
+            <div class="main-order-section">
+                <div>
+                    <div>${orderItem.item}</div>
+                    <div>${orderItem.price}</div>
                 </div>
-                <div class="added-item-remove" id="added-item-remove">
-
-                </div>
-                <button class="complete-order-btn" id="complete-order-btn">
-                        Complete order
-                </button>          
+            </div>
+            <button class="complete-order-btn" id="complete-order-btn">
+                Complete order
+            </button>          
         </section>
         `
-        })
-// Work on displaying text in order section, .filter and .include method.
+})
+})
