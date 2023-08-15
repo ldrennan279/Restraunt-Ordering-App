@@ -38,22 +38,36 @@ function getItemFromFoodData(itemIdSelected){
 
 document.addEventListener("click", (e)=> {
         getItemFromFoodData(e.target.id)
-        order.forEach((orderItem)=>{
-        main.innerHTML += `
-        <section class="order-section" id="order-section">
-            <div class="order-section-header" id="order-section-header">
-                <h3>Your order</h3>
-            </div>
-            <div class="main-order-section">
-                <div>
-                    <div>${orderItem.item}</div>
-                    <div>${orderItem.price}</div>
+        const orderSection = document.getElementById("order-section")
+        
+
+        if(orderSection){
+            
+        } else {
+            main.innerHTML += `
+            <section class="order-section" id="order-section">
+                <div class="order-section-header" id="order-section-header">
+                    <h3>Your order</h3>
                 </div>
-            </div>
-            <button class="complete-order-btn" id="complete-order-btn">
-                Complete order
-            </button>          
-        </section>
+                <div class="main-order-section" id="main-order-section">
+                                 
+                </div>
+                <button class="complete-order-btn" id="complete-order-btn">
+                    Complete order
+                </button>          
+            </section>
         `
-})
+        }
+
+        const mainOrderSection = document.getElementById("main-order-section")
+            order.forEach((orderItem)=>{
+    
+                        mainOrderSection.innerHTML += `
+                                <div class="itemAndPrice">
+                                    <div>${orderItem.item}</div>
+                                    <div>${orderItem.price}</div>
+                                </div>
+                        `
+            })
+
 })

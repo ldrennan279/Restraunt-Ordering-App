@@ -64,13 +64,11 @@ main{
     cursor: pointer;
 }
 .order-section{
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 20px 20px;
-    bottom: 0px;
-    
 }
 .order-section h3{
     font-weight: 100;
@@ -111,6 +109,12 @@ main{
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 10px;
+}
+.itemAndPrice{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin: 10px 0px;
 }
 .complete-order-btn{
     padding: 15px 20px;
