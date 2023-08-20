@@ -29,6 +29,10 @@ main{
 .title h4{
     font-weight: 100;
 }
+
+/* xxxxxxxxxxxxxxxxxxxx */
+/* x       Menu       x */
+/* xxxxxxxxxxxxxxxxxxxx */
 .item-section{
     margin: 0px 20px;
     padding: 10px 20px;
@@ -63,6 +67,11 @@ main{
  .complete-order-btn{
     cursor: pointer;
 }
+
+/* xxxxxxxxxxxxxxxxxxxx */
+/* x     Reciept      x */
+/* xxxxxxxxxxxxxxxxxxxx */
+
 .order-section{
     position: relative;
     display: flex;
@@ -77,37 +86,8 @@ main{
     margin: auto;
     padding-bottom: 40px;
 }
-.addedItems,
-.added-item-remove{
-    display: flex;
-    flex-direction: row;
-}
-.addedItems{
-    justify-content: space-between;
-    margin: 10px 0px;
-    padding-bottom: 10px;
-    border-bottom: 1px black solid;
-}
-.added-item-remove, 
-.added-item-remove p,
-.added-item-remove h3{
-    padding: 0px 10px 0px 0px;
-}
-
-.added-item-remove{
-    display: flex;
-    align-items: center;
-}
-.added-item-remove p{
-    color: #8B8B8B;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 9px;
-    cursor: pointer;
-}
-.order-total{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.main-order-section{
+    border-bottom: 1px solid lightgrey;
     margin-bottom: 10px;
 }
 .itemAndPrice{
@@ -115,6 +95,21 @@ main{
     justify-content: space-between;
     font-size: 20px;
     margin: 10px 0px;
+    
+}
+.order-item-remove{
+    display: flex;
+}
+.removeBtn{
+    background: none;
+    border: none;
+    margin-top: 5px;
+    margin-left: 10px;
+    color: grey;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    cursor: pointer;
 }
 .complete-order-btn{
     padding: 15px 20px;

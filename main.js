@@ -29,11 +29,12 @@ function getItemFromFoodData(itemIdSelected){
     const foodItem = foodData.filter(function(item){
         return item.itemId === itemIdSelected
     })
-    order.push(foodItem[0])
-    console.log(order)   
+    order.push(foodItem[0]) 
 }
 
-    
+function removeItemFormOrder(itemIdSelected){
+   
+}
 
 
 document.addEventListener("click", (e)=> {
@@ -60,14 +61,18 @@ document.addEventListener("click", (e)=> {
         }
 
         const mainOrderSection = document.getElementById("main-order-section")
+            mainOrderSection.innerHTML = ``
             order.forEach((orderItem)=>{
     
                         mainOrderSection.innerHTML += `
                                 <div class="itemAndPrice">
-                                    <div>${orderItem.item}</div>
+                                    <div class="order-item-remove" id="order-item-remove">
+                                        <div>${orderItem.item}</div>
+                                        <button class="removeBtn" id="removeBtn">Remove</button>
+                                    </div>
                                     <div>${orderItem.price}</div>
                                 </div>
                         `
             })
-
+        
 })
