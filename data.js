@@ -3,7 +3,7 @@ export const foodData = [
         item: "pizza",
         image: "images/pizza.png",
         description: "pepperoni, mushroom, mozarella",
-        price: "$14",
+        price: 14,
         add: "images/add.png",
         itemId: "pizza-order"
     },
@@ -11,7 +11,7 @@ export const foodData = [
         item: "Hamburger",
         image: "images/burger.png",
         description: "beef, cheese, lettuce",
-        price: "$12",
+        price: 12,
         add: "images/add.png",
         itemId: "hamburger-order"
     },
@@ -19,7 +19,7 @@ export const foodData = [
         item: "Beer",
         image: "images/beers.png",
         description: "grains, hops, yeast, water",
-        price: "$12",
+        price: 12,
         add: "images/add.png",
         itemId: "beer-order"
     }

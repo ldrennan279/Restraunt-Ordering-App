@@ -87,9 +87,10 @@ main{
     padding-bottom: 40px;
 }
 .main-order-section{
-    border-bottom: 1px solid lightgrey;
     margin-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
 }
+
 .itemAndPrice{
     display: flex;
     justify-content: space-between;

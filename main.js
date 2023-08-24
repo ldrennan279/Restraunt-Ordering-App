@@ -2,8 +2,8 @@ import {foodData} from "/data.js"
 
 const header = document.getElementById("header")
 const main = document.getElementById("main")
-const removeItem = document.getElementById("removeBtn")
 const order = []
+// const randomId = generateRandomId()
 
 header.innerHTML = `
     <div class="title">
@@ -25,26 +25,22 @@ foodData.forEach((item) => {
     `
 });
 
-function generateRandomId(){
-    const timeStamp = Date.now()
-    const random = Math.floor(Math.random() * 1000)
-    return `${timeStamp}-${random}`
-}
+// function generateRandomId(){
+//     const timeStamp = Date.now()
+//     const random = Math.floor(Math.random() * 1000)
+//     return `${timeStamp}-${random}`
+// }
 
 function getItemFromFoodData(itemIdSelected){
     const foodItem = foodData.filter(function(item){
         return item.itemId === itemIdSelected
     })
-    const sourceItem = foodItem[0]
-    const ref = generateRandomId()
-    const itemToAdd = {sourceItem, ref}
-    order.push(itemToAdd)
-    console.log(order)
+    order.push(foodItem[0])
+    
 }
 
-
-
 document.addEventListener("click", (e)=> {
+        if(e.target.classList.contains("add-btn")){
         getItemFromFoodData(e.target.id)
         const orderSection = document.getElementById("order-section")
         
@@ -57,6 +53,9 @@ document.addEventListener("click", (e)=> {
                 <div class="main-order-section" id="main-order-section">
                                  
                 </div>
+                <div class="total-price-section" id="total-price-section">
+                                    
+                </div>
                 <button class="complete-order-btn" id="complete-order-btn">
                     Complete order
                 </button>          
@@ -64,9 +63,8 @@ document.addEventListener("click", (e)=> {
         `
         }
 
-        function updateOrder(){
+        function addToOrder(){
             order.forEach((orderItem)=>{
-    
                         mainOrderSection.innerHTML += `
                                 <div class="itemAndPrice">
                                     <div class="order-item-remove" id="order-item-remove">
@@ -75,21 +73,28 @@ document.addEventListener("click", (e)=> {
                                             Remove
                                         </button>
                                     </div>
-                                    <div>${orderItem.price}</div>
+                                    <div>$${orderItem.price}</div>
                                 </div>
                         `
             })
         }
-
-function removeItemFormOrder(itemIdSelected){
-    
-}
-
-document.addEventListener("click", (e)=>{
         
-    })
-
+        function addToTotalPrice(){        
+            let totalPrice = 0
+            order.forEach((orderItem)=>{
+                totalPrice += orderItem.price
+                totalPriceSection.innerHTML = `
+                    <p>Total:</p>
+                    <p>$${totalPrice}</p>              
+                `                
+            })
+        }
+       
         const mainOrderSection = document.getElementById("main-order-section")
-            mainOrderSection.innerHTML = ``
-            updateOrder()
+        const totalPriceSection = document.getElementById("total-price-section")
+        mainOrderSection.innerHTML = ``
+        totalPriceSection.innerHTML = ``
+        addToOrder()
+        addToTotalPrice()
+    }
 })
