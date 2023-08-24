@@ -2,6 +2,7 @@ import {foodData} from "/data.js"
 
 const header = document.getElementById("header")
 const main = document.getElementById("main")
+const removeItem = document.getElementById("removeBtn")
 const order = []
 
 header.innerHTML = `
@@ -24,27 +25,30 @@ foodData.forEach((item) => {
     `
 });
 
+function generateRandomId(){
+    const timeStamp = Date.now()
+    const random = Math.floor(Math.random() * 1000)
+    return `${timeStamp}-${random}`
+}
 
 function getItemFromFoodData(itemIdSelected){
     const foodItem = foodData.filter(function(item){
         return item.itemId === itemIdSelected
     })
-    order.push(foodItem[0]) 
+    const sourceItem = foodItem[0]
+    const ref = generateRandomId()
+    const itemToAdd = {sourceItem, ref}
+    order.push(itemToAdd)
+    console.log(order)
 }
 
-function removeItemFormOrder(itemIdSelected){
-   
-}
 
 
 document.addEventListener("click", (e)=> {
         getItemFromFoodData(e.target.id)
         const orderSection = document.getElementById("order-section")
         
-
-        if(orderSection){
-            
-        } else {
+        if(!orderSection){
             main.innerHTML += `
             <section class="order-section" id="order-section">
                 <div class="order-section-header" id="order-section-header">
@@ -60,19 +64,32 @@ document.addEventListener("click", (e)=> {
         `
         }
 
-        const mainOrderSection = document.getElementById("main-order-section")
-            mainOrderSection.innerHTML = ``
+        function updateOrder(){
             order.forEach((orderItem)=>{
     
                         mainOrderSection.innerHTML += `
                                 <div class="itemAndPrice">
                                     <div class="order-item-remove" id="order-item-remove">
                                         <div>${orderItem.item}</div>
-                                        <button class="removeBtn" id="removeBtn">Remove</button>
+                                        <button class="removeBtn" id="${orderItem.item}">
+                                            Remove
+                                        </button>
                                     </div>
                                     <div>${orderItem.price}</div>
                                 </div>
                         `
             })
+        }
+
+function removeItemFormOrder(itemIdSelected){
+    
+}
+
+document.addEventListener("click", (e)=>{
         
+    })
+
+        const mainOrderSection = document.getElementById("main-order-section")
+            mainOrderSection.innerHTML = ``
+            updateOrder()
 })
